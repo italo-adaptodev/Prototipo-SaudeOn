@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Prototipo2</string>
+    <string name="title_activity_agenda">AgendaActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="agenda_profissional">Agenda agenda</string>
+    <string name="agenda_prof">Agenda Profissional</string>
+    <string name="month_txt">Mês</string>
+    <string name="name_prof_txt">Italo Luis</string>
+    <string name="example">Fevereiro</string>
+    <string name="paciente">Paciente</string>
+    <string name="motivo">Motivo</string>
+    <string name="data">Data</string>
+</resources>
