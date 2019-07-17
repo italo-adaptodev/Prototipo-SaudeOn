@@ -1,152 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="145dp"
+    app:cardBackgroundColor="#6FFFD700"
+    app:cardElevation="5dp"
 
-    android:orientation="vertical"
-    android:layout_margin="5dp">
+    android:layout_margin="10dp"
+    >
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="5dp"
-        android:backgroundTint="#602F992F"
-        android:elevation="5dp"
-        android:layout_marginBottom="10dp"
-        tools:targetApi="lollipop">
-
-        <LinearLayout
-            android:layout_width="175dp"
-            android:layout_height="106dp"
-            android:orientation="vertical"
-            android:layout_margin="5dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nome do paciente"
-                android:layout_marginBottom="5dp"
-                android:textSize="10dp"
-                android:fontFamily="@font/baumans"
-                android:layout_gravity="center"/>
-            <TextView
-                android:id="@+id/recy_paciente"
-                android:layout_width="123dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="20dp"
-                android:background="@drawable/arredondado2"
-                android:gravity="start"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@color/colorAccent"
-                android:textSize="15sp"
-                app:fontFamily="@font/baumans"
-                android:layout_marginLeft="20dp" />
-
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="173dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_margin="5dp"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Data, horário e turno"
-                android:textSize="10dp"
-                android:fontFamily="@font/baumans"
-                android:layout_gravity="center"
-                android:layout_marginBottom="3dp"/>
-            <TextView
-                android:id="@+id/recy_data"
-                android:layout_width="142dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/arredondado2"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@color/colorAccent"
-                android:textSize="15sp"
-                app:fontFamily="@font/baumans"
-                />
-
-            <TextView
-                android:id="@+id/recy_horario"
-                android:layout_width="142dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/arredondado2"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@color/colorAccent"
-                android:textSize="15sp"
-                app:fontFamily="@font/baumans"
-                android:layout_marginTop="3dp
-"/>
-
-            <TextView
-                android:id="@+id/recy_turno"
-                android:layout_width="141dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/arredondado2"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@color/colorAccent"
-                android:textSize="15sp"
-                app:fontFamily="@font/baumans" />
-
-
-
-
-        </LinearLayout>
-
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="153dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="right">
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp">
+            android:text="Data, hora e turno"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arredondado"
+            android:text="Data"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Motivo"
-                android:textSize="10dp"
-                android:fontFamily="@font/baumans"
-                android:layout_gravity="center"/>
-            <TextView
-                android:id="@+id/recy_motivo"
-                android:layout_width="125dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:autoSizeTextType="uniform"
-                android:background="@drawable/arredondado2"
-                android:text="textview"
-                android:textAlignment="center"
-                android:textColor="@color/colorAccent"
-                android:textSize="15sp"
-                app:fontFamily="@font/baumans"
-                android:layout_gravity="bottom"
-                android:layout_margin="10dp"/>
-
-        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arredondado"
+            android:text=" Hora"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Turno"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/arredondado"
+            android:layout_gravity="center"/>
 
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="153dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome do paciente"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arredondado"
+            android:text="Italo Luis"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Motivo"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Motivo"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/arredondado"
+            android:layout_gravity="center"/>
 
 
-    </android.support.v7.widget.CardView>
+    </LinearLayout>
 
-
-</LinearLayout>
+</android.support.v7.widget.CardView>
