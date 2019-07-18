@@ -3,8 +3,6 @@ package com.example.prototipo2.Storage;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.prototipo2.Modelos.Agenda;
-
 public class SharedPrefManager {
 
     private static final String SHARED_PREF_NAME = "cpf_profissional_SaudeOn";
@@ -23,10 +21,10 @@ public class SharedPrefManager {
         return instance;
     }
 
-    public void saveCPF(Agenda agenda){
+    public void saveCPF(String cpf){
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("cpf", agenda.getCpf_profissional());
+        editor.putString("cpf", cpf);
 
         editor.apply();
     }
@@ -36,12 +34,9 @@ public class SharedPrefManager {
         return sharedPreferences.getString("cpf", "-1") != "-1";
     }
 
-    public Agenda getProfissionalCpf(){
+    public String getProfissionalCpf(){
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        Agenda agenda = new Agenda(
-                sharedPreferences.getString("cpf", "-1")
-        );
-        return agenda;
+        return sharedPreferences.getString("cpf", "-1");
     }
 
     public void clear(){

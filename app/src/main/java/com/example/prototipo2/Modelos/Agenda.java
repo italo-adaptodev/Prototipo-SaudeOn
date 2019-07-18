@@ -4,7 +4,7 @@ public class Agenda {
 
     private String data, hora, turno, paciente, motivo, cpf_profissional;
 
-    public Agenda(String data) {
+    public Agenda(String data, String hora, String turno, String paciente, String motivo, String cpf_profissional) {
         this.data = data;
         this.hora = hora;
         this.turno = turno;
@@ -35,5 +35,9 @@ public class Agenda {
 
     public String getCpf_profissional() {
         return cpf_profissional;
+    }
+
+    public void setCpf_profissional(String cpf_profissional) {
+        this.cpf_profissional = cpf_profissional;
     }
 }

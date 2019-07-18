@@ -112,13 +112,14 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="345dp"
-        android:layout_height="425dp"
+        android:layout_width="363dp"
+        android:layout_height="433dp"
         android:layout_gravity="center"
         android:background="@drawable/rounded_recycler"
         android:backgroundTint="#F7AAE497"
+        android:foregroundGravity="center"
         tools:listitem="@layout/recycler_item"
-        android:foregroundGravity="center"/>
+        />
 
 
 </LinearLayout>

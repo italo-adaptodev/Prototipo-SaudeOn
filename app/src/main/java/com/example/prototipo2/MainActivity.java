@@ -5,16 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.example.prototipo2.API_classes.RetrofitClient;
-import com.example.prototipo2.Modelos.Agenda;
-import com.example.prototipo2.Modelos.AgendaSearchResponse;
 import com.example.prototipo2.Storage.SharedPrefManager;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -59,39 +51,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        Call<AgendaSearchResponse> call = RetrofitClient
-                .getInstance()
-                .getApi()
-                .carregarAgenda(cpf);
+        SharedPrefManager.getInstance(this).saveCPF(cpf);
 
-        call.enqueue(new Callback<AgendaSearchResponse>() {
-            @Override
-            public void onResponse(Call<AgendaSearchResponse> call, Response<AgendaSearchResponse> response) {
-                AgendaSearchResponse agendaSearchResponse = response.body();
-
-                if(!agendaSearchResponse.getError()){
-                    SharedPrefManager.getInstance(MainActivity.this)
-                            .saveCPF((Agenda) agendaSearchResponse.getAgenda());
-
-                    Intent intent = new Intent(MainActivity.this, AgendaActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    Toast.makeText(MainActivity.this, agendaSearchResponse.getMessage(), Toast.LENGTH_LONG).show();
-
-                }else{
-                    Toast.makeText(MainActivity.this, agendaSearchResponse.getMessage(), Toast.LENGTH_LONG).show();
-                }
-
-
-
-            }
-
-            @Override
-            public void onFailure(Call<AgendaSearchResponse> call, Throwable t) {
-
-            }
-        });
-
+        Intent intent = new Intent(MainActivity.this, AgendaActivity.class);
+        startActivity(intent);
 
     }
 
