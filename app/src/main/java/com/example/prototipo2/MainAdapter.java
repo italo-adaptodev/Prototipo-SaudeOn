@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.prototipo2.Modelos.Agenda;
-import com.example.prototipo2.Modelos.Model;
 
 import java.util.ArrayList;
 
@@ -16,8 +15,8 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     ArrayList<Agenda> agenda;
 
-    public MainAdapter(ArrayList<Model> models) {
-        this.models = models;
+    public MainAdapter(ArrayList<Agenda> agenda) {
+        this.agenda = agenda;
     }
 
     @NonNull
@@ -33,7 +32,7 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         viewHolder.motivo_paciente.setText(agenda.get(i).getMotivo());
         viewHolder.data_paciente.setText(agenda.get(i).getData());
         viewHolder.turno_paciente.setText(agenda.get(i).getTurno());
-        viewHolder.
+        viewHolder.hora_paciente.setText(agenda.get(i).getHora());
     }
 
     @Override
@@ -47,6 +46,7 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         public TextView motivo_paciente;
         public TextView data_paciente;
         public TextView turno_paciente;
+        public TextView hora_paciente;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -55,6 +55,7 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             motivo_paciente = itemView.findViewById(R.id.recy_motivo);
             data_paciente = itemView.findViewById(R.id.recy_data);
             turno_paciente = itemView.findViewById(R.id.recy_turno);
+            hora_paciente = itemView.findViewById(R.id.recy_hora);
 
 
         }

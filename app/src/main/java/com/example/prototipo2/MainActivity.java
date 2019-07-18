@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.prototipo2.API_classes.RetrofitClient;
+import com.example.prototipo2.Modelos.Agenda;
 import com.example.prototipo2.Modelos.AgendaSearchResponse;
 import com.example.prototipo2.Storage.SharedPrefManager;
 
@@ -28,9 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         cpf_profissional = findViewById(R.id.txt_cpf);
         findViewById(R.id.button).setOnClickListener(this);
-
-
-
 
     }
 
@@ -73,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if(!agendaSearchResponse.getError()){
                     SharedPrefManager.getInstance(MainActivity.this)
-                            .saveCPF(agendaSearchResponse.getAgenda());
+                            .saveCPF((Agenda) agendaSearchResponse.getAgenda());
 
                     Intent intent = new Intent(MainActivity.this, AgendaActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

@@ -9,12 +9,12 @@ import retrofit2.http.GET;
 
 public interface API {
 
-    @FormUrlEncoded
-    @GET("carregarAgenda")
-    Call<AgendaSearchResponse> carregarAgenda(
-            @Field("cpf") String cpf
+  @FormUrlEncoded
+  @GET("carregarAgenda")
+  Call<AgendaSearchResponse> carregarAgenda(
+          @Field("cpf") String cpf
 
-    );
+  );
 
 
 

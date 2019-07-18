@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.prototipo2.Modelos.Agenda;
-import com.example.prototipo2.Modelos.Model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,7 @@ public class AgendaActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(this);
-        adapter = new MainAdapter(agenda);
+        adapter = new MainAdapter((ArrayList<Agenda>) agenda);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
