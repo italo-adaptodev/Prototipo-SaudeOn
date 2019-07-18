@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
+    /*@Override
     protected void onStart() {
         super.onStart();
 
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
 
         }
-    }
+    }*/
 
     private void findAgenda(){
         String cpf = cpf_profissional.getText().toString().trim();

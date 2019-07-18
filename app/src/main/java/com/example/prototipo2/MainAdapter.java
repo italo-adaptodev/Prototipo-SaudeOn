@@ -10,10 +10,11 @@ import android.widget.TextView;
 import com.example.prototipo2.Modelos.Agenda;
 
 import java.util.ArrayList;
+import java.util.List;
 
 class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
-    ArrayList<Agenda> agenda;
+    private List<Agenda> agenda = new ArrayList<>();
 
     public MainAdapter(ArrayList<Agenda> agenda) {
         this.agenda = agenda;
@@ -28,11 +29,14 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MainAdapter.ViewHolder viewHolder, int i) {
-        viewHolder.Nome_paciente.setText(agenda.get(i).getPaciente());
-        viewHolder.motivo_paciente.setText(agenda.get(i).getMotivo());
-        viewHolder.data_paciente.setText(agenda.get(i).getData());
-        viewHolder.turno_paciente.setText(agenda.get(i).getTurno());
-        viewHolder.hora_paciente.setText(agenda.get(i).getHora());
+
+        Agenda agenda2 = agenda.get(i);
+
+        viewHolder.Nome_paciente.setText(agenda2.getPaciente());
+        viewHolder.motivo_paciente.setText(agenda2.getMotivo());
+        viewHolder.data_paciente.setText(agenda2.getData());
+        viewHolder.turno_paciente.setText(agenda2.getTurno());
+        viewHolder.hora_paciente.setText(agenda2.getHora());
     }
 
     @Override
@@ -40,15 +44,17 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         return agenda.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView Nome_paciente;
-        public TextView motivo_paciente;
-        public TextView data_paciente;
-        public TextView turno_paciente;
-        public TextView hora_paciente;
 
-        public ViewHolder(@NonNull View itemView) {
+    class ViewHolder extends RecyclerView.ViewHolder {
+
+        TextView Nome_paciente;
+        TextView motivo_paciente;
+        TextView data_paciente;
+        TextView turno_paciente;
+        TextView hora_paciente;
+
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             Nome_paciente = itemView.findViewById(R.id.recy_paciente);

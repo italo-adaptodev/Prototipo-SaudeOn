@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.example.prototipo2.API_classes.RetrofitClient;
 import com.example.prototipo2.Modelos.Agenda;
@@ -24,6 +25,7 @@ public class AgendaActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
     List<Agenda> agenda;
+    SharedPrefManager sharedPrefManager = SharedPrefManager.getInstance(this);
 
 
 
@@ -45,7 +47,7 @@ public class AgendaActivity extends AppCompatActivity {
         Call<AgendaSearchResponse> call = RetrofitClient
                 .getInstance()
                 .getApi()
-                .carregarAgenda(SharedPrefManager.getInstance(this).getProfissionalCpf());
+                .carregarAgenda(sharedPrefManager.getProfissionalCpf());
 
         call.enqueue(new Callback<AgendaSearchResponse>() {
             @Override
@@ -53,6 +55,7 @@ public class AgendaActivity extends AppCompatActivity {
                 agenda = response.body().getAgenda();
                 adapter = new MainAdapter((ArrayList<Agenda>) agenda);
                 recyclerView.setAdapter(adapter);
+                Toast.makeText(AgendaActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
             }
 
             @Override
