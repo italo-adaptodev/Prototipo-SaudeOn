@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="#E94ACC35"
+    android:background="#47D4DA"
     app:cardElevation="5dp"
     android:layout_margin="10dp"
-    android:layout_gravity=""
+
     >
 
     <LinearLayout
@@ -14,15 +14,17 @@
         android:layout_height="match_parent"
         android:layout_gravity="right"
         android:layout_marginBottom="5dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Data, hora e turno"
-            android:textSize="10dp" />
+            android:text="Data"
+            android:textSize="10dp"
+            android:fontFamily="@font/convergence"/>
 
         <!--bloco de três-->
 
@@ -35,18 +37,17 @@
             android:background="@drawable/arredondado"
             android:gravity="center"
             android:text="Data"
-            android:id="@+id/recy_data"/>
+            android:id="@+id/recy_data"
+            android:fontFamily="@font/convergence"/>
 
         <TextView
-            android:layout_width="106dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:autoSizeTextType="uniform"
-            android:background="@drawable/arredondado"
-            android:gravity="center"
-            android:text=" Hora"
-            android:id="@+id/recy_hora"/>
+            android:layout_marginTop="10dp"
+            android:text="Turno"
+            android:textSize="10dp"
+            android:fontFamily="@font/convergence"/>
 
         <TextView
             android:layout_width="106dp"
@@ -57,7 +58,8 @@
             android:background="@drawable/arredondado"
             android:gravity="center"
             android:text="Turno"
-            android:id="@+id/recy_turno"/>
+            android:id="@+id/recy_turno"
+            android:fontFamily="@font/convergence"/>
 
         <!--bloco de três-->
 
@@ -74,9 +76,11 @@
             android:text="Nome do paciente"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:textSize="10dp"/>
+            android:textSize="10dp"
+            android:fontFamily="@font/convergence"/>
 
         <TextView
+            android:fontFamily="@font/convergence"
             android:id="@+id/recy_paciente"
             android:layout_width="106dp"
             android:layout_height="wrap_content"
@@ -88,6 +92,7 @@
             android:gravity="center"/>
 
         <TextView
+            android:fontFamily="@font/convergence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Motivo"
@@ -96,6 +101,7 @@
             android:textSize="10dp"/>
 
         <TextView
+            android:fontFamily="@font/convergence"
             android:id="@+id/recy_motivo"
             android:layout_width="106dp"
             android:layout_height="wrap_content"

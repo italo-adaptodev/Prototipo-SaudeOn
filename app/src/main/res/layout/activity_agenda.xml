@@ -5,12 +5,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background= "#ffff">
+    android:background= "#FFFFFF">
 
 
-   <!-- <android.support.constraint.ConstraintLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="275dp"
+        android:layout_height="135dp"
         android:layout_gravity="start|top">
 
         <TextView
@@ -24,13 +24,13 @@
             android:layout_marginRight="8dp"
             android:gravity="center"
             android:text="Agenda Profissional"
+            android:textColor="#359EAD"
             android:textSize="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.202" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/txt_nome_prof"
@@ -43,11 +43,13 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:autoSizeTextType="uniform"
-            android:text="Italo Luis"
+            android:text="Pedro"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.34" />
 
         <TextView
             android:id="@+id/txt_month"
@@ -60,8 +62,8 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:autoSizeTextType="uniform"
-            android:text="Fevereiro"
-            android:textSize="20dp"
+            android:text="Julho"
+            android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
@@ -71,7 +73,7 @@
 
         <ImageButton
             android:id="@+id/btn_next_month"
-            android:layout_width="47dp"
+            android:layout_width="37dp"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
@@ -82,15 +84,14 @@
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toEndOf="@+id/txt_month"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.888"
-            app:srcCompat="@drawable/arrow" />
+            app:srcCompat="@drawable/arrow_blue" />
 
         <ImageButton
             android:id="@+id/btn_preview_month"
-            android:layout_width="47dp"
+            android:layout_width="37dp"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
@@ -105,21 +106,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.888"
-            app:srcCompat="@drawable/arrow" />
+            app:srcCompat="@drawable/arrow_blue" />
 
 
-    </android.support.constraint.ConstraintLayout>-->
+    </android.support.constraint.ConstraintLayout>
+
+
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="363dp"
-        android:layout_height="433dp"
-        android:layout_gravity="center"
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/rounded_recycler"
-        android:backgroundTint="#F7AAE497"
-        android:foregroundGravity="center"
         tools:listitem="@layout/recycler_item"
-        />
+        android:backgroundTint="#359EAD"/>
+
+
+
+
 
 
 </LinearLayout>

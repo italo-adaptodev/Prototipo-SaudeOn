@@ -36,7 +36,7 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         viewHolder.motivo_paciente.setText(agenda2.getMotivo());
         viewHolder.data_paciente.setText(agenda2.getData());
         viewHolder.turno_paciente.setText(agenda2.getTurno());
-        viewHolder.hora_paciente.setText(agenda2.getHora());
+
     }
 
     @Override
@@ -52,7 +52,7 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         TextView motivo_paciente;
         TextView data_paciente;
         TextView turno_paciente;
-        TextView hora_paciente;
+
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,7 +61,7 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             motivo_paciente = itemView.findViewById(R.id.recy_motivo);
             data_paciente = itemView.findViewById(R.id.recy_data);
             turno_paciente = itemView.findViewById(R.id.recy_turno);
-            hora_paciente = itemView.findViewById(R.id.recy_hora);
+
 
 
         }

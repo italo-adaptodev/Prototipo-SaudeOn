@@ -36,7 +36,7 @@ public class AgendaActivity extends AppCompatActivity {
 
 
 
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(this);
