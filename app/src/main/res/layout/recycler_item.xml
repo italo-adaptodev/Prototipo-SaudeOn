@@ -34,7 +34,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:autoSizeTextType="uniform"
-            android:background="@drawable/arredondado"
+            android:background="@drawable/txt_arredondado"
             android:gravity="center"
             android:text="Data"
             android:id="@+id/recy_data"
@@ -55,7 +55,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:autoSizeTextType="uniform"
-            android:background="@drawable/arredondado"
+            android:background="@drawable/txt_arredondado"
             android:gravity="center"
             android:text="Turno"
             android:id="@+id/recy_turno"
@@ -87,7 +87,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:autoSizeTextType="uniform"
-            android:background="@drawable/arredondado"
+            android:background="@drawable/txt_arredondado"
             android:text="Italo Luis"
             android:gravity="center"/>
 
@@ -108,7 +108,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="3dp"
             android:autoSizeTextType="uniform"
-            android:background="@drawable/arredondado"
+            android:background="@drawable/txt_arredondado"
             android:text="Rotina"
             android:gravity="center"/>
 

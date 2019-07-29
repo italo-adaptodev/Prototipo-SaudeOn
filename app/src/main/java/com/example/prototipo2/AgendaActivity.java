@@ -56,6 +56,7 @@ public class AgendaActivity extends AppCompatActivity {
                 adapter = new MainAdapter((ArrayList<Agenda>) agenda);
                 recyclerView.setAdapter(adapter);
                 Toast.makeText(AgendaActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+
             }
 
             @Override
