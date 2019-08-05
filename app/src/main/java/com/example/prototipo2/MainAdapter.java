@@ -9,14 +9,13 @@ import android.widget.TextView;
 
 import com.example.prototipo2.Modelos.Agenda;
 
-import java.util.ArrayList;
 import java.util.List;
 
 class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
-    private List<Agenda> agenda = new ArrayList<>();
+    private List<Agenda> agenda;
 
-    public MainAdapter(ArrayList<Agenda> agenda) {
+    public MainAdapter(List<Agenda> agenda) {
         this.agenda = agenda;
     }
 

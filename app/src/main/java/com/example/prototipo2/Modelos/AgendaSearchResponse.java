@@ -5,12 +5,12 @@ import java.util.List;
 public class AgendaSearchResponse {
 
     private String message;
-    private List<Agenda> agenda;
+    private List<Agenda> Agenda;
     private Boolean error;
 
     public AgendaSearchResponse(String message, List<Agenda> agenda, Boolean error) {
         this.message = message;
-        this.agenda = agenda;
+        this.Agenda = agenda;
         this.error = error;
     }
 
@@ -19,7 +19,7 @@ public class AgendaSearchResponse {
     }
 
     public List<Agenda> getAgenda() {
-        return agenda;
+        return Agenda;
     }
 
     public Boolean getError() {

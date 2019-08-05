@@ -1,5 +1,6 @@
 package com.example.prototipo2.Modelos;
 
+
 public class Agenda {
 
     private String data, hora, turno, paciente, motivo, cpf_profissional;
@@ -12,6 +13,7 @@ public class Agenda {
         this.motivo = motivo;
         this.cpf_profissional = cpf_profissional;
     }
+
 
     public String getData() {
         return data;

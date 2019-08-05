@@ -1,9 +1,9 @@
 package com.example.prototipo2;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -22,6 +22,6 @@ public class SplashScreen extends AppCompatActivity {
                 finish();
 
             }
-        },3500);
+        }, 3000);
     }
 }

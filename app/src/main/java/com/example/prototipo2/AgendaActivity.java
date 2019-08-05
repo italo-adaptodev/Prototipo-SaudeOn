@@ -4,15 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
 import com.example.prototipo2.API_classes.RetrofitClient;
-import com.example.prototipo2.Modelos.Agenda;
 import com.example.prototipo2.Modelos.AgendaSearchResponse;
 import com.example.prototipo2.Storage.SharedPrefManager;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,8 +18,7 @@ public class AgendaActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-    RecyclerView.Adapter adapter;
-    List<Agenda> agenda;
+    MainAdapter adapter;
     SharedPrefManager sharedPrefManager = SharedPrefManager.getInstance(this);
 
 
@@ -52,10 +46,9 @@ public class AgendaActivity extends AppCompatActivity {
         call.enqueue(new Callback<AgendaSearchResponse>() {
             @Override
             public void onResponse(Call<AgendaSearchResponse> call, Response<AgendaSearchResponse> response) {
-                agenda = response.body().getAgenda();
-                adapter = new MainAdapter((ArrayList<Agenda>) agenda);
+                adapter = new MainAdapter(response.body().getAgenda());
                 recyclerView.setAdapter(adapter);
-                Toast.makeText(AgendaActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(AgendaActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
 
             }
 
