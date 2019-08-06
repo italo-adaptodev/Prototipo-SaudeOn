@@ -9,8 +9,7 @@ import retrofit2.http.Query;
 public interface API {
 
 
-/*  @GET("carregarAgenda")
-  Call<AgendaSearchResponse> carregarAgenda(@Query("cpf")String cpf);*/
+
 
   @GET("carregarAgenda?cpf=")
   Call<AgendaSearchResponse> carregarAgenda(@Query("cpf") String cpf);

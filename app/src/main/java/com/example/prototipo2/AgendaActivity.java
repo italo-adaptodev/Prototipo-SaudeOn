@@ -1,6 +1,9 @@
 package com.example.prototipo2;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -48,15 +51,31 @@ public class AgendaActivity extends AppCompatActivity {
             public void onResponse(Call<AgendaSearchResponse> call, Response<AgendaSearchResponse> response) {
                 adapter = new MainAdapter(response.body().getAgenda());
                 recyclerView.setAdapter(adapter);
-//                Toast.makeText(AgendaActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
 
             }
 
             @Override
             public void onFailure(Call<AgendaSearchResponse> call, Throwable throwable) {
-
+                alerta();
             }
         });
 
     }
+
+   public void alerta(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(AgendaActivity.this);
+        builder.setTitle("Ops");
+        builder.setMessage("Não foi possível achar a sua agenda. Por favor, verifique se o CPF inserido foi digitado corretamente");
+        builder.setPositiveButton("Voltar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(AgendaActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+    }
+
 }

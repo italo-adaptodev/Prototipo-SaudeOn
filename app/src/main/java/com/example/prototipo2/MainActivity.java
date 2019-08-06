@@ -24,15 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
  }
 
-    /*@Override
-    protected void onStart() {
-        super.onStart();
-        if(SharedPrefManager.getInstance(this).isLoggedIn()){
-            Intent intent = new Intent(MainActivity.this, AgendaActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-        }
-    }*/
+
 
  private void findAgenda() {
   String cpf = cpf_profissional.getText().toString().trim();
@@ -43,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
    return;
   }
 
-  if (cpf.length() > 11) {
+  if (cpf.length() != 11) {
    cpf_profissional.setError("Tamanho de cpf inválido");
    cpf_profissional.requestFocus();
    return;
