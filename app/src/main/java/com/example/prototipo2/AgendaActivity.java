@@ -17,21 +17,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AgendaActivity extends AppCompatActivity {
-
-
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     MainAdapter adapter;
     SharedPrefManager sharedPrefManager = SharedPrefManager.getInstance(this);
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda);
-
-
 
         recyclerView = findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
@@ -40,26 +34,28 @@ public class AgendaActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(layoutManager);
 
-
         Call<AgendaSearchResponse> call = RetrofitClient
                 .getInstance()
                 .getApi()
                 .carregarAgenda(sharedPrefManager.getProfissionalCpf());
 
+
         call.enqueue(new Callback<AgendaSearchResponse>() {
             @Override
             public void onResponse(Call<AgendaSearchResponse> call, Response<AgendaSearchResponse> response) {
-                adapter = new MainAdapter(response.body().getAgenda());
-                recyclerView.setAdapter(adapter);
-
+                if (response.body() == null) {
+                    alerta();
+                } else {
+                    adapter = new MainAdapter(response.body().getAgenda());
+                    recyclerView.setAdapter(adapter);
+                }
             }
 
             @Override
             public void onFailure(Call<AgendaSearchResponse> call, Throwable throwable) {
-                alerta();
+
             }
         });
-
     }
 
    public void alerta(){
@@ -75,7 +71,5 @@ public class AgendaActivity extends AppCompatActivity {
         });
         AlertDialog dialog = builder.create();
         dialog.show();
-
     }
-
 }

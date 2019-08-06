@@ -24,7 +24,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
  }
 
-
+ @Override
+ public void onClick(View v) {
+  switch (v.getId()) {
+   case R.id.button:
+    findAgenda();
+    break;
+  }
+ }
 
  private void findAgenda() {
   String cpf = cpf_profissional.getText().toString().trim();
@@ -46,14 +53,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   Intent intent = new Intent(MainActivity.this, AgendaActivity.class);
   startActivity(intent);
 
- }
-
- @Override
- public void onClick(View v) {
-  switch (v.getId()) {
-   case R.id.button:
-    findAgenda();
-    break;
-  }
  }
 }
