@@ -1,4 +1,4 @@
-package com.example.prototipo2;
+package com.agendaSaudeOn;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,9 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.example.prototipo2.API_classes.RetrofitClient;
-import com.example.prototipo2.Modelos.AgendaSearchResponse;
-import com.example.prototipo2.Storage.SharedPrefManager;
+import com.agendaSaudeOn.API_classes.RetrofitClient;
+import com.agendaSaudeOn.Modelos.AgendaSearchResponse;
+import com.agendaSaudeOn.Storage.SharedPrefManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;

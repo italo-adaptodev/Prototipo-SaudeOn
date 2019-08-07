@@ -1,4 +1,4 @@
-package com.example.prototipo2.Modelos;
+package com.agendaSaudeOn.Modelos;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.prototipo2;
+package com.agendaSaudeOn;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.prototipo2.Storage.SharedPrefManager;
+import com.agendaSaudeOn.Storage.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 

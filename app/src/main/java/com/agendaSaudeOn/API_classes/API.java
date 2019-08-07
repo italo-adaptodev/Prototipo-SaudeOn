@@ -1,6 +1,6 @@
-package com.example.prototipo2.API_classes;
+package com.agendaSaudeOn.API_classes;
 
-import com.example.prototipo2.Modelos.AgendaSearchResponse;
+import com.agendaSaudeOn.Modelos.AgendaSearchResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

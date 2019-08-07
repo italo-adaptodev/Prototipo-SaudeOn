@@ -1,4 +1,4 @@
-package com.example.prototipo2;
+package com.agendaSaudeOn;
 
 import org.junit.Test;
 

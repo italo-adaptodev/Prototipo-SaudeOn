@@ -1,4 +1,4 @@
-package com.example.prototipo2;
+package com.agendaSaudeOn;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.prototipo2.Modelos.Agenda;
+import com.agendaSaudeOn.Modelos.Agenda;
 
 import java.util.List;
 

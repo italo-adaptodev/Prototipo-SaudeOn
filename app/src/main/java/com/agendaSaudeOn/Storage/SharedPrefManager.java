@@ -1,4 +1,4 @@
-package com.example.prototipo2.Storage;
+package com.agendaSaudeOn.Storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
