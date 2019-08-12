@@ -7,6 +7,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.agendaSaudeOn.API_classes.RetrofitClient;
 import com.agendaSaudeOn.Modelos.AgendaSearchResponse;
@@ -21,6 +24,10 @@ public class AgendaActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     MainAdapter adapter;
     SharedPrefManager sharedPrefManager = SharedPrefManager.getInstance(this);
+    TextView nomeProf;
+    ImageButton setaAnt, setaProx;
+    int qtdBtnPrss = 0;
+    TextView mes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,18 +36,69 @@ public class AgendaActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
+        nomeProf = findViewById(R.id.txt_nome_prof);
+        mes = findViewById(R.id.txt_month);
+
+
 
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setLayoutManager(layoutManager);
 
-        Call<AgendaSearchResponse> call = RetrofitClient
+        setaAnt = findViewById(R.id.btn_preview_month);
+        setaProx = findViewById(R.id.btn_next_month);
+
+        setaAnt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                qtdBtnPrss += -1;
+                callAgenda(qtdBtnPrss);
+            }
+        });
+
+        setaProx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                qtdBtnPrss += +1;
+                callAgenda(qtdBtnPrss);
+            }
+        });
+
+
+        // ++++++++++++++++++ CARREGANDO NOME ++++++++++++++++++++
+
+        Call<AgendaSearchResponse> callNome = RetrofitClient
                 .getInstance()
                 .getApi()
-                .carregarAgenda(sharedPrefManager.getProfissionalCpf());
+                .buscarNome(sharedPrefManager.getProfissionalCpf());
+
+        callNome.enqueue(new Callback<AgendaSearchResponse>() {
+            @Override
+            public void onResponse(Call<AgendaSearchResponse> call, Response<AgendaSearchResponse> response) {
+                String strconcat = "Olá, " + response.body().getNome() + "!";
+                nomeProf.setText(strconcat);
+            }
+
+            @Override
+            public void onFailure(Call<AgendaSearchResponse> call, Throwable throwable) {
+
+            }
+        });
+        // ++++++++++++++++++ CARREGANDO NOME ++++++++++++++++++++
 
 
-        call.enqueue(new Callback<AgendaSearchResponse>() {
+
+    }
+
+
+    public void callAgenda(int qtdBtnPrss) {
+        Call<AgendaSearchResponse> callAgenda = RetrofitClient
+                .getInstance()
+                .getApi()
+                .carregarAgenda(sharedPrefManager.getProfissionalCpf(), qtdBtnPrss);
+
+
+        callAgenda.enqueue(new Callback<AgendaSearchResponse>() {
             @Override
             public void onResponse(Call<AgendaSearchResponse> call, Response<AgendaSearchResponse> response) {
                 if (response.body() == null) {
@@ -58,7 +116,7 @@ public class AgendaActivity extends AppCompatActivity {
         });
     }
 
-   public void alerta(){
+    public void alerta() {
         AlertDialog.Builder builder = new AlertDialog.Builder(AgendaActivity.this);
         builder.setTitle("Ops");
         builder.setMessage("Não foi possível achar a sua agenda. Por favor, verifique se o CPF inserido foi digitado corretamente");
@@ -72,4 +130,6 @@ public class AgendaActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
+
 }

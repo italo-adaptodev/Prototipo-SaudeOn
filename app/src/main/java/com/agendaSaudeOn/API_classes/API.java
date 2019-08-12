@@ -12,7 +12,10 @@ public interface API {
 
 
   @GET("carregarAgenda?cpf=")
-  Call<AgendaSearchResponse> carregarAgenda(@Query("cpf") String cpf);
+  Call<AgendaSearchResponse> carregarAgenda(@Query("cpf") String cpf, @Query("btnprs") int btnprs);
+
+  @GET("buscarNome?cpf=")
+  Call<AgendaSearchResponse> buscarNome(@Query("cpf") String cpf);
 
 
 

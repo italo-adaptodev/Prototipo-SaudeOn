@@ -32,8 +32,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-        <!--<TextView
-
+        <TextView
             android:id="@+id/txt_nome_prof"
             android:layout_width="98dp"
             android:layout_height="25dp"
@@ -44,13 +43,13 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:autoSizeTextType="uniform"
-            android:text="Olá, Pedro!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.34" />-->
+            app:layout_constraintVertical_bias="0.34"
+            android:textColor="#359EAD" />
 
         <TextView
             android:id="@+id/txt_month"
@@ -88,7 +87,9 @@
             app:layout_constraintStart_toEndOf="@+id/txt_month"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.888"
-            app:srcCompat="@drawable/arrow_blue" />
+            app:srcCompat="@drawable/arrow_blue"
+            android:clickable="true"
+            android:focusable="true" />
 
         <ImageButton
             android:id="@+id/btn_preview_month"
@@ -107,7 +108,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.888"
-            app:srcCompat="@drawable/arrow_blue" />
+            app:srcCompat="@drawable/arrow_blue"
+            android:clickable="true"
+            android:focusable="true" />
 
 
     </android.support.constraint.ConstraintLayout>
