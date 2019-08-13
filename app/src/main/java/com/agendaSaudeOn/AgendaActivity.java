@@ -64,6 +64,8 @@ public class AgendaActivity extends AppCompatActivity {
             }
         });
 
+        callAgenda(qtdBtnPrss);
+
 
         // ++++++++++++++++++ CARREGANDO NOME ++++++++++++++++++++
 
@@ -106,6 +108,7 @@ public class AgendaActivity extends AppCompatActivity {
                 } else {
                     adapter = new MainAdapter(response.body().getAgenda());
                     recyclerView.setAdapter(adapter);
+                    mes.setText(response.body().getMes());
                 }
             }
 

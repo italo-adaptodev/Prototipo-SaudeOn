@@ -53,8 +53,8 @@
 
         <TextView
             android:id="@+id/txt_month"
-            android:layout_width="58dp"
-            android:layout_height="49dp"
+            android:layout_width="141dp"
+            android:layout_height="43dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -63,13 +63,15 @@
             android:layout_marginBottom="8dp"
             android:autoSizeTextType="uniform"
             android:text="Mês"
+            android:textColor="#359EAD"
             android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.885" />
+            app:layout_constraintVertical_bias="0.885"
+            android:gravity="center" />
 
         <ImageButton
             android:id="@+id/btn_next_month"
