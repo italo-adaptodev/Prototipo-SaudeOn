@@ -14,4 +14,5 @@
     <string name="digite_o_seu_cpf_para_carregar_a_sua_agenda">Digite o seu CPF para carregar a sua agenda</string>
     <string name="carregar_agenda">Carregar agenda</string>
     <string name="seja_bem_vindo">Seja bem vindo!</string>
+    <string name="title_activity_date_picker">DatePickerActivity</string>
 </resources>
