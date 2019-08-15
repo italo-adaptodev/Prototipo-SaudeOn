@@ -1,5 +1,6 @@
 package com.agendaSaudeOn;
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,26 +9,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.agendaSaudeOn.API_classes.RetrofitClient;
 import com.agendaSaudeOn.Modelos.AgendaSearchResponse;
 import com.agendaSaudeOn.Storage.SharedPrefManager;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AgendaActivity extends AppCompatActivity {
+public class AgendaActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     MainAdapter adapter;
     SharedPrefManager sharedPrefManager = SharedPrefManager.getInstance(this);
-    TextView nomeProf;
-    ImageButton setaAnt, setaProx;
-    int qtdBtnPrss = 0;
-    TextView mes;
+    TextView nomeProf, mes;
+    Button btn_setDate;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,44 +44,31 @@ public class AgendaActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         nomeProf = findViewById(R.id.txt_nome_prof);
         mes = findViewById(R.id.txt_month);
-        setaAnt = findViewById(R.id.btn_preview_month);
-        setaProx = findViewById(R.id.btn_next_month);
+
 
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
 
-        setaAnt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                qtdBtnPrss += -1;
-                callAgenda(qtdBtnPrss);
-            }
-        });
-
-        setaProx.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                qtdBtnPrss += +1;
-                callAgenda(qtdBtnPrss);
-            }
-        });
-
-        callAgenda(qtdBtnPrss);
-
-
         loadName();
+
+        findViewById(R.id.btn_date).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePickerDialog();
+            }
+        });
 
 
 
     }
 
 
-    public void callAgenda(int qtdBtnPrss) {
+    public void callAgenda(String data) {
         Call<AgendaSearchResponse> callAgenda = RetrofitClient
                 .getInstance()
                 .getApi()
-                .carregarAgenda(sharedPrefManager.getProfissionalCpf(), qtdBtnPrss);
+                .carregarAgenda(sharedPrefManager.getProfissionalCpf(), data);
 
 
         callAgenda.enqueue(new Callback<AgendaSearchResponse>() {
@@ -86,7 +79,7 @@ public class AgendaActivity extends AppCompatActivity {
                 } else {
                     adapter = new MainAdapter(response.body().getAgenda());
                     recyclerView.setAdapter(adapter);
-                    mes.setText(response.body().getMes());
+
                 }
             }
 
@@ -112,9 +105,7 @@ public class AgendaActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    public void hasNoData() {
 
-    }
 
     public void loadName() {
         Call<AgendaSearchResponse> callNome = RetrofitClient
@@ -134,6 +125,38 @@ public class AgendaActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+
+    public void showDatePickerDialog() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                this,
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+
+    }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+
+        String oldData = +year + "/" + month + "/" + dayOfMonth;
+        callAgenda(oldData);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date newDate = null;
+        try {
+            newDate = dateFormat.parse(oldData);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String newData = dateFormat.format(newDate);
+
+        mes.setText(newData);
+
     }
 
 

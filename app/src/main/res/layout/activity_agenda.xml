@@ -53,8 +53,8 @@
 
         <TextView
             android:id="@+id/txt_month"
-            android:layout_width="141dp"
-            android:layout_height="43dp"
+            android:layout_width="184dp"
+            android:layout_height="41dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -62,57 +62,34 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:autoSizeTextType="uniform"
+            android:gravity="center"
             android:text="Mês"
             android:textColor="#359EAD"
             android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.364"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.885"
-            android:gravity="center" />
+            app:layout_constraintVertical_bias="1.0" />
 
-        <ImageButton
-            android:id="@+id/btn_next_month"
-            android:layout_width="37dp"
-            android:layout_height="40dp"
+        <Button
+            android:id="@+id/btn_date"
+            android:layout_width="84dp"
+            android:layout_height="36dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:background="#00FFFFFF"
-            android:scaleType="fitCenter"
+            android:text="Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txt_month"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.888"
-            app:srcCompat="@drawable/arrow_blue"
-            android:clickable="true"
-            android:focusable="true" />
-
-        <ImageButton
-            android:id="@+id/btn_preview_month"
-            android:layout_width="37dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#00FFFFFF"
-            android:rotation="180"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/txt_month"
+            app:layout_constraintHorizontal_bias="0.934"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.888"
-            app:srcCompat="@drawable/arrow_blue"
-            android:clickable="true"
-            android:focusable="true" />
+            app:layout_constraintVertical_bias="1.0" />
 
 
     </android.support.constraint.ConstraintLayout>

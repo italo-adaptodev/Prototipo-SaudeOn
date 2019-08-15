@@ -15,7 +15,6 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity android:name=".DatePickerFrag"></activity>
         <activity android:name=".AgendaActivity" />
         <activity android:name=".SplashScreen">
             <intent-filter>
