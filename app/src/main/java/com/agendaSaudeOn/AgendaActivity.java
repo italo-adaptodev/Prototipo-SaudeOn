@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
@@ -32,7 +31,7 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
     MainAdapter adapter;
     SharedPrefManager sharedPrefManager = SharedPrefManager.getInstance(this);
     TextView nomeProf, mes;
-    Button btn_setDate;
+
 
 
     @Override
@@ -50,9 +49,7 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
         recyclerView.setLayoutManager(layoutManager);
 
 
-        loadName();
-
-        findViewById(R.id.btn_date).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_searchDate).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showDatePickerDialog();
@@ -79,6 +76,8 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
                 } else {
                     adapter = new MainAdapter(response.body().getAgenda());
                     recyclerView.setAdapter(adapter);
+                    String str = "Olá, " + response.body().getNome() + "!";
+                    nomeProf.setText(str);
 
                 }
             }
@@ -107,27 +106,6 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
 
 
 
-    public void loadName() {
-        Call<AgendaSearchResponse> callNome = RetrofitClient
-                .getInstance()
-                .getApi()
-                .buscarNome(sharedPrefManager.getProfissionalCpf());
-
-        callNome.enqueue(new Callback<AgendaSearchResponse>() {
-            @Override
-            public void onResponse(Call<AgendaSearchResponse> call, Response<AgendaSearchResponse> response) {
-                String strconcat = "Olá, " + response.body().getNome() + "!";
-                nomeProf.setText(strconcat);
-            }
-
-            @Override
-            public void onFailure(Call<AgendaSearchResponse> call, Throwable throwable) {
-
-            }
-        });
-    }
-
-
     public void showDatePickerDialog() {
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
@@ -142,7 +120,8 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
 
-        String oldData = +year + "/" + month + "/" + dayOfMonth;
+        month += 1;
+        String oldData = year + "/" + month + "/" + dayOfMonth;
         callAgenda(oldData);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date newDate = null;

@@ -7,14 +7,14 @@ public class AgendaSearchResponse {
     private String message;
     private List<Agenda> Agendas;
     private Boolean error;
-    private String name;
+    private String profissional;
     private String mesAtual;
 
     public AgendaSearchResponse(String message, List<Agenda> agenda, Boolean error, String name, String mesAtual) {
         this.message = message;
         this.Agendas = agenda;
         this.error = error;
-        this.name = name;
+        this.profissional = profissional;
         this.mesAtual = mesAtual;
     }
 
@@ -31,7 +31,7 @@ public class AgendaSearchResponse {
     }
 
     public String getNome() {
-        return name;
+        return profissional;
     }
 
     public String getMes() {
