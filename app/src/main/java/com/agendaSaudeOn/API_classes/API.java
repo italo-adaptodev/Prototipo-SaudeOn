@@ -17,6 +17,9 @@ public interface API {
   @GET("buscarNome?cpf=")
   Call<AgendaSearchResponse> buscarNome(@Query("cpf") String cpf);
 
+    @GET("check?cpf=")
+    Call<AgendaSearchResponse> check(@Query("cpf") String cpf);
+
 
 
 }

@@ -32,22 +32,20 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
     SharedPrefManager sharedPrefManager = SharedPrefManager.getInstance(this);
     TextView nomeProf, mes;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda);
+
+        check();
 
         recyclerView = findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
         nomeProf = findViewById(R.id.txt_nome_prof);
         mes = findViewById(R.id.txt_month);
 
-
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
 
         findViewById(R.id.btn_searchDate).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,30 +53,23 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
                 showDatePickerDialog();
             }
         });
-
-
-
     }
 
 
     public void callAgenda(String data) {
-        Call<AgendaSearchResponse> callAgenda = RetrofitClient
-                .getInstance()
-                .getApi()
-                .carregarAgenda(sharedPrefManager.getProfissionalCpf(), data);
+        Call<AgendaSearchResponse> callAgenda = RetrofitClient.getInstance().getApi().carregarAgenda(sharedPrefManager.getProfissionalCpf(), data);
 
 
         callAgenda.enqueue(new Callback<AgendaSearchResponse>() {
             @Override
             public void onResponse(Call<AgendaSearchResponse> call, Response<AgendaSearchResponse> response) {
-                if (response.body() == null) {
-                    alertaCpfWrong();
+                if (response.body().getAgenda().isEmpty()) {
+                    emptyAgenda();
                 } else {
                     adapter = new MainAdapter(response.body().getAgenda());
                     recyclerView.setAdapter(adapter);
                     String str = "Olá, " + response.body().getNome() + "!";
                     nomeProf.setText(str);
-
                 }
             }
 
@@ -103,8 +94,6 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
-
 
     public void showDatePickerDialog() {
         DatePickerDialog datePickerDialog = new DatePickerDialog(
@@ -136,6 +125,32 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
 
         mes.setText(newData);
 
+    }
+
+    public void check() {
+        Call<AgendaSearchResponse> checkProfissional = RetrofitClient.getInstance().getApi().check(sharedPrefManager.getProfissionalCpf());
+
+        checkProfissional.enqueue(new Callback<AgendaSearchResponse>() {
+            @Override
+            public void onResponse(Call<AgendaSearchResponse> call, Response<AgendaSearchResponse> response) {
+                if (response.body() == null) {
+                    alertaCpfWrong();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AgendaSearchResponse> call, Throwable throwable) {
+
+            }
+        });
+    }
+
+    public void emptyAgenda() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(AgendaActivity.this);
+        builder.setTitle("Ops");
+        builder.setMessage("Não há nenhuma marcação para esse dia!");
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 

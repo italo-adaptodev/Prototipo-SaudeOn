@@ -10,7 +10,7 @@ public class AgendaSearchResponse {
     private String profissional;
     private String mesAtual;
 
-    public AgendaSearchResponse(String message, List<Agenda> agenda, Boolean error, String name, String mesAtual) {
+    public AgendaSearchResponse(String message, List<Agenda> agenda, Boolean error, String profissional, String mesAtual) {
         this.message = message;
         this.Agendas = agenda;
         this.error = error;
