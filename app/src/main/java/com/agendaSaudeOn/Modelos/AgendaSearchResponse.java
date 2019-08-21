@@ -18,24 +18,16 @@ public class AgendaSearchResponse {
         this.mesAtual = mesAtual;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
     public List<Agenda> getAgenda() {
         return Agendas;
-    }
-
-    public Boolean getError() {
-        return error;
     }
 
     public String getNome() {
         return profissional;
     }
 
-    public String getMes() {
-        return mesAtual;
+    public String getEnderecoMaps(int i) {
+        return Agendas.get(i).endereco;
     }
 
 

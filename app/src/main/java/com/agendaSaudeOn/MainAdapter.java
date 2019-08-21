@@ -15,6 +15,7 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     private List<Agenda> agenda;
 
+
     public MainAdapter(List<Agenda> agenda) {
         this.agenda = agenda;
     }
@@ -24,18 +25,23 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public MainAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_item, viewGroup, false);
         return new ViewHolder(view);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull MainAdapter.ViewHolder viewHolder, int i) {
 
         Agenda agenda2 = agenda.get(i);
-
         viewHolder.Nome_paciente.setText(agenda2.getPaciente());
         viewHolder.motivo_paciente.setText(agenda2.getMotivo());
         viewHolder.data_paciente.setText(agenda2.getData());
         viewHolder.turno_paciente.setText(agenda2.getTurno());
+        viewHolder.endereco_paciente.setText(agenda2.getEndereco());
 
+    }
+
+    private void showEndereco(ViewHolder viewHolder, Agenda agenda) {
+        viewHolder.getAdapterPosition();
     }
 
     @Override
@@ -43,14 +49,13 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         return agenda.size();
     }
 
-
-
     class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView Nome_paciente;
         TextView motivo_paciente;
         TextView data_paciente;
         TextView turno_paciente;
+        TextView endereco_paciente;
 
 
         ViewHolder(@NonNull View itemView) {
@@ -60,9 +65,14 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             motivo_paciente = itemView.findViewById(R.id.recy_motivo);
             data_paciente = itemView.findViewById(R.id.recy_data);
             turno_paciente = itemView.findViewById(R.id.recy_turno);
-
-
-
+            endereco_paciente = itemView.findViewById(R.id.recy_endereco);
         }
+
     }
+
+
+
+
+
+
 }
