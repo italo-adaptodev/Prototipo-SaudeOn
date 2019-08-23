@@ -1,5 +1,8 @@
 package com.agendaSaudeOn;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -40,8 +43,13 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     }
 
-    private void showEndereco(ViewHolder viewHolder, Agenda agenda) {
-        viewHolder.getAdapterPosition();
+    private void showEndereco(Context c, Agenda agenda) {
+        Uri gmmIntentUri = Uri.parse(Uri.encode(agenda.getEndereco()));
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        if (mapIntent.resolveActivity(c.getPackageManager()) != null) {
+            c.startActivity(mapIntent);
+        }
     }
 
     @Override
@@ -60,6 +68,13 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
+            final Agenda a = agenda.get(getAdapterPosition());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    showEndereco(view.getContext(), a);
+                }
+            });
 
             Nome_paciente = itemView.findViewById(R.id.recy_paciente);
             motivo_paciente = itemView.findViewById(R.id.recy_motivo);
