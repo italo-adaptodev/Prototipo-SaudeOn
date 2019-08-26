@@ -2,12 +2,11 @@ package com.agendaSaudeOn.Modelos;
 
 public class Model {
 
-  public String nome, motivo, data, turno;
+  public String nome, motivo, turno;
 
-  public Model(String nome, String motivo, String data, String turno) {
+  public Model(String nome, String motivo, String turno) {
     this.nome = nome;
     this.motivo = motivo;
-    this.data = data;
     this.turno = turno;
   }
 
@@ -27,15 +26,7 @@ public class Model {
     this.motivo = motivo;
   }
 
-  public String getData() {
-    return data;
-  }
-
-  public void setData(String data) {
-    this.data = data;
-  }
-
-  public String getTurno() {
+    public String getTurno() {
     return turno;
   }
 

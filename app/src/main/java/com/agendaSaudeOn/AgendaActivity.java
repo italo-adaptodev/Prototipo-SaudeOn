@@ -54,13 +54,11 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
             }
         });
 
-
     }
 
 
     public void callAgenda(String data) {
         Call<AgendaSearchResponse> callAgenda = RetrofitClient.getInstance().getApi().carregarAgenda(sharedPrefManager.getProfissionalCpf(), data);
-
 
         callAgenda.enqueue(new Callback<AgendaSearchResponse>() {
             @Override
