@@ -78,8 +78,8 @@
 
         <android.support.v7.widget.AppCompatImageButton
             android:id="@+id/btn_searchDate"
-            android:layout_width="49dp"
-            android:layout_height="43dp"
+            android:layout_width="45dp"
+            android:layout_height="35dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
