@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -62,7 +63,7 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
 
         callAgenda.enqueue(new Callback<AgendaSearchResponse>() {
             @Override
-            public void onResponse(Call<AgendaSearchResponse> call, Response<AgendaSearchResponse> response) {
+            public void onResponse(@NonNull Call<AgendaSearchResponse> call, @NonNull Response<AgendaSearchResponse> response) {
                 if (response.body().getAgenda().isEmpty()) {
                     emptyAgenda();
                 } else {
@@ -74,7 +75,7 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
             }
 
             @Override
-            public void onFailure(Call<AgendaSearchResponse> call, Throwable throwable) {
+            public void onFailure(@NonNull Call<AgendaSearchResponse> call, @NonNull Throwable throwable) {
 
             }
         });
@@ -149,6 +150,12 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
         AlertDialog.Builder builder = new AlertDialog.Builder(AgendaActivity.this);
         builder.setTitle("Ops");
         builder.setMessage("Não há nenhuma marcação para esse dia!");
+        builder.setNeutralButton("Ok!", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                recreate();
+            }
+        });
         AlertDialog dialog = builder.create();
         dialog.show();
     }

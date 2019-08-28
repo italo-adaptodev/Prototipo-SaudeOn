@@ -37,16 +37,16 @@
             android:fontFamily="@font/convergence"
             android:gravity="center"
             android:maxLines="2"
-            android:text="@string/italo_luis" />
+            android:text="Italo Luis" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            app:fontFamily="@font/convergence"
-            android:text="@string/endere_o"
-            android:textSize="10sp" />
+            android:fontFamily="@font/convergence"
+            android:text="Endereço"
+            android:textSize="10dp" />
 
         <TextView
             android:id="@+id/recy_endereco"
@@ -58,15 +58,14 @@
             android:background="@drawable/txt_arredondado"
             android:fontFamily="@font/convergence"
             android:gravity="center"
-            android:text="@string/endere_o_completo"
-            tools:targetApi="o" />
+            android:text="Endereço completo" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="166dp"
         android:layout_height="110dp"
-        android:layout_gravity="end"
+        android:layout_gravity="right"
         android:layout_marginBottom="5dp"
         android:orientation="vertical">
 
@@ -76,9 +75,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/convergence"
-            android:text="@string/motivo1"
-            android:textSize="10sp"
-            tools:targetApi="jelly_bean" />
+            android:text="Motivo"
+            android:textSize="10dp" />
 
         <TextView
             android:id="@+id/recy_motivo"
@@ -90,8 +88,7 @@
             android:background="@drawable/txt_arredondado"
             android:fontFamily="@font/convergence"
             android:gravity="center"
-            android:text="@string/rotina"
-            tools:targetApi="o" />
+            android:text="Rotina" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -99,9 +96,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/convergence"
-            android:text="@string/turno"
-            android:textSize="10sp"
-            tools:targetApi="jelly_bean" />
+            android:text="Turno"
+            android:textSize="10dp" />
 
         <TextView
             android:id="@+id/recy_turno"
@@ -111,10 +107,9 @@
             android:layout_marginTop="5dp"
             android:autoSizeTextType="uniform"
             android:background="@drawable/txt_arredondado"
-            app:fontFamily="@font/convergence"
+            android:fontFamily="@font/convergence"
             android:gravity="center"
-            android:text="@string/turno"
-            tools:targetApi="o" />
+            android:text="Turno" />
 
         <!--bloco de três-->
 
@@ -129,7 +124,6 @@
         android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
         app:srcCompat="@drawable/ic_maps"
-        tools:ignore="VectorDrawableCompat"
-        android:layout_marginStart="10dp" />
+        tools:ignore="VectorDrawableCompat" />
 
 </android.support.v7.widget.CardView>

@@ -16,4 +16,12 @@
     <string name="seja_bem_vindo">Seja bem vindo!</string>
     <string name="title_activity_date_picker">DatePickerActivity</string>
     <string name="warning_agenda">Opa, parece que não há nenhuma marcação para hoje!</string>
+    <string name="nome_do_paciente">Nome do paciente</string>
+    <string name="italo_luis">Italo Luis</string>
+    <string name="endere_o">Endereço</string>
+    <string name="endere_o_completo">Endereço completo</string>
+    <string name="motivo1">Motivo</string>
+    <string name="rotina">Rotina</string>
+    <string name="turno1">Turno</string>
+    <string name="turno">Turno</string>
 </resources>
