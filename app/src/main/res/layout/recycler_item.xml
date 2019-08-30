@@ -6,130 +6,168 @@
     android:layout_height="130dp"
     android:layout_margin="10dp"
     android:background="#47D4DA"
-    app:cardElevation="5dp">
+    app:cardElevation="5dp"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="154dp"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="212dp"
         android:layout_height="110dp"
         android:layout_gravity="start"
+        android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginBottom="5dp"
-        android:orientation="vertical"
-        android:layout_marginStart="15dp">
+        android:layout_marginBottom="5dp">
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            app:fontFamily="@font/convergence"
+            android:layout_marginBottom="3dp"
             android:text="@string/nome_do_paciente"
-            android:textSize="10sp" />
+            android:textSize="12sp"
+            app:fontFamily="@font/convergence"
+            app:layout_constraintBottom_toTopOf="@+id/recy_paciente"
+            app:layout_constraintEnd_toEndOf="@+id/recy_paciente"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="@+id/recy_paciente"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
             android:id="@+id/recy_paciente"
-            android:layout_width="match_parent"
+            android:layout_width="154dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="3dp"
+            android:layout_marginBottom="9dp"
             android:autoSizeTextType="uniform"
             android:background="@drawable/txt_arredondado"
             android:fontFamily="@font/convergence"
             android:gravity="center"
             android:maxLines="2"
-            android:text="@string/italo_luis" />
+            android:text="@string/italo_luis"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            app:fontFamily="@font/convergence"
+            android:layout_marginBottom="5dp"
             android:text="@string/endere_o"
-            android:textSize="10sp" />
+            android:textSize="12sp"
+            app:fontFamily="@font/convergence"
+            app:layout_constraintBottom_toTopOf="@+id/recy_endereco"
+            app:layout_constraintEnd_toEndOf="@+id/recy_endereco"
+            app:layout_constraintStart_toStartOf="@+id/recy_endereco"
+            app:layout_constraintTop_toBottomOf="@+id/recy_paciente" />
 
         <TextView
             android:id="@+id/recy_endereco"
             android:layout_width="154dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
+            android:layout_marginBottom="3dp"
             android:autoSizeTextType="uniform"
             android:background="@drawable/txt_arredondado"
             android:fontFamily="@font/convergence"
             android:gravity="center"
             android:text="@string/endere_o_completo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/recy_paciente"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/recy_paciente"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
             tools:targetApi="o" />
 
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/btn_maps"
+            android:layout_width="24dp"
+            android:layout_height="21dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/recy_endereco"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.887"
+            app:srcCompat="@drawable/ic_maps"
+            tools:ignore="VectorDrawableCompat"
+            android:layout_marginStart="-4dp"
+            android:layout_marginLeft="-4dp" />
+    </android.support.constraint.ConstraintLayout>
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="166dp"
         android:layout_height="110dp"
         android:layout_gravity="end"
-        android:layout_marginBottom="5dp"
-        android:orientation="vertical">
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="5dp">
 
         <TextView
+            android:id="@+id/txt_motivo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/convergence"
+            android:layout_marginBottom="3dp"
             android:text="@string/motivo1"
-            android:textSize="10sp"
-            tools:targetApi="jelly_bean" />
+            android:textSize="12sp"
+            app:fontFamily="@font/convergence"
+            app:layout_constraintBottom_toTopOf="@+id/recy_motivo"
+            app:layout_constraintEnd_toEndOf="@+id/recy_motivo"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="@+id/recy_motivo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
             android:id="@+id/recy_motivo"
-            android:layout_width="106dp"
+            android:layout_width="154dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="3dp"
+            android:layout_marginBottom="9dp"
             android:autoSizeTextType="uniform"
             android:background="@drawable/txt_arredondado"
             android:fontFamily="@font/convergence"
             android:gravity="center"
+            android:maxLines="2"
             android:text="@string/rotina"
-            tools:targetApi="o" />
+            app:layout_constraintBottom_toTopOf="@+id/txt_turno"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_motivo" />
 
         <TextView
+            android:id="@+id/txt_turno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/convergence"
+            android:layout_marginBottom="5dp"
             android:text="@string/turno"
-            android:textSize="10sp"
-            tools:targetApi="jelly_bean" />
+            android:textSize="12sp"
+            app:fontFamily="@font/convergence"
+            app:layout_constraintBottom_toTopOf="@+id/recy_turno"
+            app:layout_constraintEnd_toEndOf="@+id/recy_turno"
+            app:layout_constraintStart_toStartOf="@+id/recy_turno"
+            app:layout_constraintTop_toBottomOf="@+id/recy_motivo" />
 
         <TextView
             android:id="@+id/recy_turno"
-            android:layout_width="106dp"
+            android:layout_width="154dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
+            android:layout_marginBottom="3dp"
             android:autoSizeTextType="uniform"
             android:background="@drawable/txt_arredondado"
-            app:fontFamily="@font/convergence"
+            android:fontFamily="@font/convergence"
             android:gravity="center"
-            android:text="@string/turno"
+            android:text="@string/turno1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/recy_motivo"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/recy_motivo"
+            app:layout_constraintTop_toBottomOf="@+id/txt_turno"
             tools:targetApi="o" />
 
-        <!--bloco de três-->
+    </android.support.constraint.ConstraintLayout>
 
-    </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/btn_maps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/transparent"
-        app:srcCompat="@drawable/ic_maps"
-        tools:ignore="VectorDrawableCompat"
-        android:layout_marginStart="10dp" />
 
 </android.support.v7.widget.CardView>

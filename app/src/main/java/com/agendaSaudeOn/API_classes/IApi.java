@@ -6,11 +6,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface API {
-
-
-
-
+public interface IApi {
   @GET("carregarAgenda?cpf=")
   Call<AgendaSearchResponse> carregarAgenda(@Query("cpf") String cpf, @Query("date") String date);
 
@@ -19,7 +15,5 @@ public interface API {
 
     @GET("check?cpf=")
     Call<AgendaSearchResponse> check(@Query("cpf") String cpf);
-
-
 
 }
