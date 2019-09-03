@@ -3,7 +3,7 @@
     <string name="title_activity_agenda">AgendaActivity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
-    <string name="agenda_profissional">Agenda agenda</string>
+    <string name="agenda_profissional">Agenda prontuarioProfissionals</string>
     <string name="agenda_prof">Agenda Profissional</string>
     <string name="month_txt">Mês</string>
     <string name="name_prof_txt">Italo Luis</string>
@@ -11,8 +11,8 @@
     <string name="paciente">Paciente</string>
     <string name="motivo">Motivo</string>
     <string name="data">Data</string>
-    <string name="digite_o_seu_cpf_para_carregar_a_sua_agenda">Digite o seu CPF para carregar a sua agenda</string>
-    <string name="carregar_agenda">Carregar agenda</string>
+    <string name="digite_o_seu_cpf_para_carregar_a_sua_agenda">Digite o seu CPF para carregar a sua prontuarioProfissionals</string>
+    <string name="carregar_agenda">Carregar prontuarioProfissionals</string>
     <string name="seja_bem_vindo">Seja bem vindo!</string>
     <string name="title_activity_date_picker">DatePickerActivity</string>
     <string name="warning_agenda">Opa, parece que não há nenhuma marcação para hoje!</string>

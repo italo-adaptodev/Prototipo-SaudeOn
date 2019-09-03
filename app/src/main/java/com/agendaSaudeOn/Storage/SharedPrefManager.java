@@ -34,7 +34,7 @@ public class SharedPrefManager {
         return sharedPreferences.getString("cpf", "-1") != "-1";
     }
 
-    public String getProfissionalCpf(){
+    public String getCpf() {
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString("cpf", "-1");
     }

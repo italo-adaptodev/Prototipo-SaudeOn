@@ -10,19 +10,18 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.agendaSaudeOn.Modelos.Agenda;
+import com.agendaSaudeOn.Modelos.ProntuarioProfissional;
 
 import java.util.List;
 
-class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
+public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
-    private List<Agenda> agenda;
-    private Agenda agendaView;
+    private List<ProntuarioProfissional> prontuarioProfissionals;
+    private ProntuarioProfissional prontuarioProfissionalView;
 
 
-
-    public MainAdapter(List<Agenda> agenda) {
-        this.agenda = agenda;
+    public MainAdapter(List<ProntuarioProfissional> prontuarioProfissionals) {
+        this.prontuarioProfissionals = prontuarioProfissionals;
     }
 
     @NonNull
@@ -35,28 +34,21 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
 
-        agendaView = agenda.get(i);
-        viewHolder.Nome_paciente.setText(agendaView.getPaciente());
-        viewHolder.motivo_paciente.setText(agendaView.getMotivo());
-        viewHolder.turno_paciente.setText(agendaView.getTurno());
-        viewHolder.endereco_paciente.setText(agendaView.getEndereco());
+        prontuarioProfissionalView = prontuarioProfissionals.get(i);
+        viewHolder.Nome_paciente.setText(prontuarioProfissionalView.getPaciente());
+        viewHolder.motivo_paciente.setText(prontuarioProfissionalView.getMotivo());
+        viewHolder.turno_paciente.setText(prontuarioProfissionalView.getTurno());
+        viewHolder.endereco_paciente.setText(prontuarioProfissionalView.getEndereco());
 
-        showEndereco(viewHolder, agendaView);
+        showEndereco(viewHolder, prontuarioProfissionalView);
 
     }
 
-    private void showEndereco(final ViewHolder v, final Agenda a) {
+    private void showEndereco(final ViewHolder v, final ProntuarioProfissional prontuario) {
         v.openMaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Uri gmmIntentUri = Uri.parse(Uri.encode(a.getEndereco()));
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                mapIntent.setPackage("com.google.android.apps.maps");
-                if (mapIntent.resolveActivity(view.getContext().getPackageManager()) != null) {
-                    view.getContext().startActivity(mapIntent);
-                }*/
-
-                String uri = "http://maps.google.com/maps?q=" + a.getEndereco();
+                String uri = "http://maps.google.com/maps?q=" + prontuario.getEndereco();
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
                 view.getContext().startActivity(intent);
 
@@ -67,7 +59,7 @@ class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return agenda.size();
+        return prontuarioProfissionals.size();
     }
 
 

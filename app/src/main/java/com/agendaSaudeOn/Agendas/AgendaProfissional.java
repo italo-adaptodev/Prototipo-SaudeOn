@@ -1,4 +1,4 @@
-package com.agendaSaudeOn;
+package com.agendaSaudeOn.Agendas;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
@@ -14,7 +14,10 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.agendaSaudeOn.API_classes.RetrofitClient;
-import com.agendaSaudeOn.Modelos.AgendaSearchResponse;
+import com.agendaSaudeOn.Login;
+import com.agendaSaudeOn.MainAdapter;
+import com.agendaSaudeOn.Modelos.AgendaProfissionalResponse;
+import com.agendaSaudeOn.R;
 import com.agendaSaudeOn.Storage.SharedPrefManager;
 
 import java.text.ParseException;
@@ -26,7 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AgendaActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class AgendaProfissional extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     MainAdapter adapter;
@@ -59,11 +62,11 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
 
 
     public void callAgenda(String data) {
-        Call<AgendaSearchResponse> callAgenda = RetrofitClient.getInstance().getApi().carregarAgenda(sharedPrefManager.getProfissionalCpf(), data);
+        Call<AgendaProfissionalResponse> callAgenda = RetrofitClient.getInstance().getApi().carregarAgendaProfissional(sharedPrefManager.getCpf(), data);
 
-        callAgenda.enqueue(new Callback<AgendaSearchResponse>() {
+        callAgenda.enqueue(new Callback<AgendaProfissionalResponse>() {
             @Override
-            public void onResponse(@NonNull Call<AgendaSearchResponse> call, @NonNull Response<AgendaSearchResponse> response) {
+            public void onResponse(@NonNull Call<AgendaProfissionalResponse> call, @NonNull Response<AgendaProfissionalResponse> response) {
                 if (response.body().getAgenda().isEmpty()) {
                     emptyAgenda();
                 } else {
@@ -75,20 +78,20 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
             }
 
             @Override
-            public void onFailure(@NonNull Call<AgendaSearchResponse> call, @NonNull Throwable throwable) {
+            public void onFailure(@NonNull Call<AgendaProfissionalResponse> call, @NonNull Throwable throwable) {
 
             }
         });
     }
 
     public void alertaCpfWrong() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(AgendaActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(AgendaProfissional.this);
         builder.setTitle("Ops");
         builder.setMessage("Não foi possível achar a sua agenda. Por favor, verifique se o CPF inserido foi digitado corretamente");
         builder.setPositiveButton("Voltar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(AgendaActivity.this, MainActivity.class);
+                Intent intent = new Intent(AgendaProfissional.this, Login.class);
                 startActivity(intent);
             }
         });
@@ -129,25 +132,25 @@ public class AgendaActivity extends AppCompatActivity implements DatePickerDialo
     }
 
     public void check() {
-        Call<AgendaSearchResponse> checkProfissional = RetrofitClient.getInstance().getApi().check(sharedPrefManager.getProfissionalCpf());
+        Call<AgendaProfissionalResponse> checkProfissional = RetrofitClient.getInstance().getApi().validarCpfProfissional(sharedPrefManager.getCpf());
 
-        checkProfissional.enqueue(new Callback<AgendaSearchResponse>() {
+        checkProfissional.enqueue(new Callback<AgendaProfissionalResponse>() {
             @Override
-            public void onResponse(Call<AgendaSearchResponse> call, Response<AgendaSearchResponse> response) {
+            public void onResponse(Call<AgendaProfissionalResponse> call, Response<AgendaProfissionalResponse> response) {
                 if (response.body() == null) {
                     alertaCpfWrong();
                 }
             }
 
             @Override
-            public void onFailure(Call<AgendaSearchResponse> call, Throwable throwable) {
+            public void onFailure(Call<AgendaProfissionalResponse> call, Throwable throwable) {
 
             }
         });
     }
 
     public void emptyAgenda() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(AgendaActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(AgendaProfissional.this);
         builder.setTitle("Ops");
         builder.setMessage("Não há nenhuma marcação para esse dia!");
         builder.setNeutralButton("Ok!", new DialogInterface.OnClickListener() {

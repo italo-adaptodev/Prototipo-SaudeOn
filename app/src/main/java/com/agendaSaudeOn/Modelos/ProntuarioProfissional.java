@@ -1,11 +1,11 @@
 package com.agendaSaudeOn.Modelos;
 
 
-public class Agenda {
+public class ProntuarioProfissional {
 
     public String turno, paciente, motivo, cpf_profissional, endereco;
 
-    public Agenda(String turno, String paciente, String motivo, String cpf_profissional, String endereco) {
+    public ProntuarioProfissional(String turno, String paciente, String motivo, String cpf_profissional, String endereco) {
         this.turno = turno;
         this.paciente = paciente;
         this.motivo = motivo;
