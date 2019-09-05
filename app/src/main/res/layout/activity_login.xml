@@ -126,16 +126,16 @@
         android:layout_height="49dp"
         android:background="@drawable/txt_arredondado"
         android:drawableLeft="@drawable/ic_stethoscope"
-        android:padding="5dp"
+        android:padding="10sp"
         android:text="Profissional"
-        android:textAlignment="center"
         android:textColor="#154A50"
         app:layout_constraintBottom_toTopOf="@+id/btn_carregarAgenda"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_cpf"
-        app:layout_constraintVertical_bias="0.549" />
+        app:layout_constraintVertical_bias="0.549"
+        android:drawableStart="@drawable/ic_stethoscope" />
 
     <Button
         android:id="@+id/btn_cuidador"

@@ -39,7 +39,7 @@ public class AgendaProfissional extends AppCompatActivity implements DatePickerD
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agenda);
+        setContentView(R.layout.activity_agenda_profissional);
 
         check();
 
