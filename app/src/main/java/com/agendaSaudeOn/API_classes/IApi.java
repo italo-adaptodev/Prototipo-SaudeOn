@@ -1,7 +1,7 @@
 package com.agendaSaudeOn.API_classes;
 
-import com.agendaSaudeOn.Modelos.AgendaCuidadorResponse;
-import com.agendaSaudeOn.Modelos.AgendaProfissionalResponse;
+import com.agendaSaudeOn.AgendaCuidadorPackage.AgendaCuidadorResponse;
+import com.agendaSaudeOn.AgendaProfissionalPackage.AgendaProfissionalResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

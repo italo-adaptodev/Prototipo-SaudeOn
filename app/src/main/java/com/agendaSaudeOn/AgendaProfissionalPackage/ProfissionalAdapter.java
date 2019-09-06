@@ -1,32 +1,32 @@
-package com.agendaSaudeOn;
+package com.agendaSaudeOn.AgendaProfissionalPackage;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.agendaSaudeOn.Modelos.ProntuarioProfissional;
+import com.agendaSaudeOn.R;
 
 import java.util.List;
 
-public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
+public class ProfissionalAdapter extends RecyclerView.Adapter<ProfissionalAdapter.ViewHolder> {
 
     private List<ProntuarioProfissional> prontuarioProfissionals;
     private ProntuarioProfissional prontuarioProfissionalView;
 
 
-    public MainAdapter(List<ProntuarioProfissional> prontuarioProfissionals) {
+    public ProfissionalAdapter(List<ProntuarioProfissional> prontuarioProfissionals) {
         this.prontuarioProfissionals = prontuarioProfissionals;
     }
 
     @NonNull
     @Override
-    public MainAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ProfissionalAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_item, viewGroup, false);
         return new ViewHolder(view);
     }

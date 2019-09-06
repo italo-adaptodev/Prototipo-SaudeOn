@@ -1,14 +1,13 @@
-package com.agendaSaudeOn.Agendas;
+package com.agendaSaudeOn.AgendaCuidadorPackage;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.agendaSaudeOn.API_classes.RetrofitClient;
 import com.agendaSaudeOn.Login;
-import com.agendaSaudeOn.Modelos.AgendaCuidadorResponse;
 import com.agendaSaudeOn.R;
 import com.agendaSaudeOn.Storage.SharedPrefManager;
 

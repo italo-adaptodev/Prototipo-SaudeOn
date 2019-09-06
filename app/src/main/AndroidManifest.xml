@@ -15,8 +15,8 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity android:name=".Agendas.AgendaCuidador"></activity>
-        <activity android:name=".Agendas.AgendaProfissional" />
+        <activity android:name=".AgendaCuidadorPackage.AgendaCuidador"></activity>
+        <activity android:name=".AgendaProfissionalPackage.AgendaProfissional" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

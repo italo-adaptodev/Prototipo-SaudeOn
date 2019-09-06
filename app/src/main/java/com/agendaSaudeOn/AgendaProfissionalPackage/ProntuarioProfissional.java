@@ -1,4 +1,4 @@
-package com.agendaSaudeOn.Modelos;
+package com.agendaSaudeOn.AgendaProfissionalPackage;
 
 
 public class ProntuarioProfissional {

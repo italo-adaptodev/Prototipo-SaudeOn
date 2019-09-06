@@ -1,4 +1,4 @@
-package com.agendaSaudeOn.Modelos;
+package com.agendaSaudeOn.AgendaProfissionalPackage;
 
 import java.util.List;
 

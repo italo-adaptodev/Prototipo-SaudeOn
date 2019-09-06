@@ -1,22 +1,20 @@
-package com.agendaSaudeOn.Agendas;
+package com.agendaSaudeOn.AgendaProfissionalPackage;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.agendaSaudeOn.API_classes.RetrofitClient;
 import com.agendaSaudeOn.Login;
-import com.agendaSaudeOn.MainAdapter;
-import com.agendaSaudeOn.Modelos.AgendaProfissionalResponse;
 import com.agendaSaudeOn.R;
 import com.agendaSaudeOn.Storage.SharedPrefManager;
 
@@ -32,7 +30,7 @@ import retrofit2.Response;
 public class AgendaProfissional extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-    MainAdapter adapter;
+    ProfissionalAdapter adapter;
     SharedPrefManager sharedPrefManager = SharedPrefManager.getInstance(this);
     TextView nomeProf, mes;
 
@@ -70,7 +68,7 @@ public class AgendaProfissional extends AppCompatActivity implements DatePickerD
                 if (response.body().getAgenda().isEmpty()) {
                     emptyAgenda();
                 } else {
-                    adapter = new MainAdapter(response.body().getAgenda());
+                    adapter = new ProfissionalAdapter(response.body().getAgenda());
                     recyclerView.setAdapter(adapter);
                     String str = "Olá, " + response.body().getNome() + "!";
                     nomeProf.setText(str);

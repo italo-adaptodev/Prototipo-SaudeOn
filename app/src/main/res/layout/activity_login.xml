@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     xmlns:tools="http://schemas.android.com/tools"
@@ -65,7 +65,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/txt_arredondado"
         android:ems="10"
-        android:hint="Digite o seu cpf para acessar a prontuarioProfissionals"
+        android:hint="Digite o seu cpf"
         android:imeOptions="actionDone"
         android:inputType="number"
         android:singleLine="false"
@@ -126,7 +126,6 @@
         android:layout_height="49dp"
         android:background="@drawable/txt_arredondado"
         android:drawableLeft="@drawable/ic_stethoscope"
-        android:padding="10sp"
         android:text="Profissional"
         android:textColor="#154A50"
         app:layout_constraintBottom_toTopOf="@+id/btn_carregarAgenda"
@@ -143,7 +142,6 @@
         android:layout_height="49dp"
         android:background="@drawable/txt_arredondado"
         android:drawableLeft="@drawable/ic_lifeline_in_a_heart_outline"
-        android:padding="15dp"
         android:text="Cuidador"
         android:textAlignment="center"
         android:textColor="#154A50"
@@ -168,4 +166,4 @@
         app:layout_constraintVertical_bias="0.183" />
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

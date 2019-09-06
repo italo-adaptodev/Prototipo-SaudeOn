@@ -1,19 +1,15 @@
 package com.agendaSaudeOn;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.agendaSaudeOn.Agendas.AgendaCuidador;
-import com.agendaSaudeOn.Agendas.AgendaProfissional;
+import com.agendaSaudeOn.AgendaCuidadorPackage.AgendaCuidador;
+import com.agendaSaudeOn.AgendaProfissionalPackage.AgendaProfissional;
 import com.agendaSaudeOn.Storage.SharedPrefManager;
 
 public class Login extends AppCompatActivity {
@@ -33,32 +29,15 @@ public class Login extends AppCompatActivity {
         profissionalBtn = findViewById(R.id.btn_prof);
         cuidadorBtn = findViewById(R.id.btn_cuidador);
         carregarAgendaBtn = findViewById(R.id.btn_carregarAgenda);
+        profissionalBtn.setPadding(10,10,10,10);
+        cuidadorBtn.setPadding(10,10,10,10);
 
 
         profissionalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //0 = profissional
-                if (tipoAgenda.equals(CUIDADOR)) {
-                    tipoAgenda = PROFISSIONAL;
-                    profissionalBtn.setTypeface(Typeface.DEFAULT_BOLD);
-                    profissionalBtn.setBackgroundResource(R.drawable.txt_arredondado_selected);
-                    profissionalBtn.setPadding(10, 10, 10, 10);
-                    cuidadorBtn.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                    cuidadorBtn.setBackgroundResource(R.drawable.txt_arredondado);
-
-                } else if (tipoAgenda.equals(PROFISSIONAL)) {
-                    tipoAgenda = -1;
-                    profissionalBtn.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                    profissionalBtn.setBackgroundResource(R.drawable.txt_arredondado);
-                    profissionalBtn.setPadding(10, 10, 10, 10);
-                } else {
-                    tipoAgenda = PROFISSIONAL;
-                    profissionalBtn.setTypeface(Typeface.DEFAULT_BOLD);
-                    profissionalBtn.setBackgroundResource(R.drawable.txt_arredondado_selected);
-                    profissionalBtn.setPadding(10, 10, 10, 10);
-
-                }
+                profissionalBtnClick();
             }
         });
 
@@ -66,27 +45,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //1 = cuidador.
-                if (tipoAgenda.equals(PROFISSIONAL)) {
-                    tipoAgenda = CUIDADOR;
-                    cuidadorBtn.setTypeface(Typeface.DEFAULT_BOLD);
-                    cuidadorBtn.setBackgroundResource(R.drawable.txt_arredondado_selected);
-                    cuidadorBtn.setPadding(10, 10, 10, 10);
-                    profissionalBtn.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                    profissionalBtn.setBackgroundResource(R.drawable.txt_arredondado);
-
-                } else if (tipoAgenda.equals(CUIDADOR)) {
-                    tipoAgenda = -1;
-                    cuidadorBtn.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                    cuidadorBtn.setBackgroundResource(R.drawable.txt_arredondado);
-                    cuidadorBtn.setPadding(10, 10, 10, 10);
-
-                } else {
-                    tipoAgenda = CUIDADOR;
-                    cuidadorBtn.setTypeface(Typeface.DEFAULT_BOLD);
-                    cuidadorBtn.setBackgroundResource(R.drawable.txt_arredondado_selected);
-                    cuidadorBtn.setPadding(10, 10, 10, 10);
-
-                }
+                cuidadorBtnClick();
             }
         });
 
@@ -98,6 +57,58 @@ public class Login extends AppCompatActivity {
         });
     }
 
+    private void cuidadorBtnClick() {
+        if (tipoAgenda.equals(PROFISSIONAL)) {
+            tipoAgenda = CUIDADOR;
+            cuidadorBtn.setTypeface(Typeface.DEFAULT_BOLD);
+            cuidadorBtn.setBackgroundResource(R.drawable.txt_arredondado_selected);
+            profissionalBtn.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            profissionalBtn.setBackgroundResource(R.drawable.txt_arredondado);
+            cuidadorBtn.setPadding(10, 10, 10, 10);
+            profissionalBtn.setPadding(10, 10, 10, 10);
+
+
+        } else if (tipoAgenda.equals(CUIDADOR)) {
+            tipoAgenda = -1;
+            cuidadorBtn.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            cuidadorBtn.setBackgroundResource(R.drawable.txt_arredondado);
+            cuidadorBtn.setPadding(10, 10, 10, 10);
+            profissionalBtn.setPadding(10, 10, 10, 10);
+
+        } else {
+            tipoAgenda = CUIDADOR;
+            cuidadorBtn.setTypeface(Typeface.DEFAULT_BOLD);
+            cuidadorBtn.setBackgroundResource(R.drawable.txt_arredondado_selected);
+            cuidadorBtn.setPadding(10, 10, 10, 10);
+            profissionalBtn.setPadding(10, 10, 10, 10);
+
+        }
+    }
+
+    private void profissionalBtnClick() {
+        if (tipoAgenda.equals(CUIDADOR)) {
+            tipoAgenda = PROFISSIONAL;
+            profissionalBtn.setTypeface(Typeface.DEFAULT_BOLD);
+            profissionalBtn.setBackgroundResource(R.drawable.txt_arredondado_selected);
+            cuidadorBtn.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            cuidadorBtn.setBackgroundResource(R.drawable.txt_arredondado);
+            profissionalBtn.setPadding(10, 10, 10, 10);
+            cuidadorBtn.setPadding(10, 10, 10, 10);
+        } else if (tipoAgenda.equals(PROFISSIONAL)) {
+            tipoAgenda = -1;
+            profissionalBtn.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            profissionalBtn.setBackgroundResource(R.drawable.txt_arredondado);
+            profissionalBtn.setPadding(10, 10, 10, 10);
+            cuidadorBtn.setPadding(10, 10, 10, 10);
+        } else {
+            tipoAgenda = PROFISSIONAL;
+            profissionalBtn.setTypeface(Typeface.DEFAULT_BOLD);
+            profissionalBtn.setBackgroundResource(R.drawable.txt_arredondado_selected);
+            profissionalBtn.setPadding(10, 10, 10, 10);
+            cuidadorBtn.setPadding(10, 10, 10, 10);
+
+        }
+    }
 
     private void findAgenda(Integer tipoAgenda) {
         String cpf = cpfUsuario.getText().toString().trim();
@@ -135,7 +146,4 @@ public class Login extends AppCompatActivity {
 
     }
 
-    private void escolherPerfil(Button perfilBtn) {
-
-    }
 }
