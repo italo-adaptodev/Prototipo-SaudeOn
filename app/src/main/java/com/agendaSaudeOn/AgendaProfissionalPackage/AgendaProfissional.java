@@ -65,6 +65,7 @@ public class AgendaProfissional extends AppCompatActivity implements DatePickerD
         callAgenda.enqueue(new Callback<AgendaProfissionalResponse>() {
             @Override
             public void onResponse(@NonNull Call<AgendaProfissionalResponse> call, @NonNull Response<AgendaProfissionalResponse> response) {
+                assert response.body() != null;
                 if (response.body().getAgenda().isEmpty()) {
                     emptyAgenda();
                 } else {

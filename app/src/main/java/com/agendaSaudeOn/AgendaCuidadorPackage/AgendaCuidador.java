@@ -24,7 +24,7 @@ public class AgendaCuidador extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda_cuidador);
 
-        check();
+        //check();
     }
 
 

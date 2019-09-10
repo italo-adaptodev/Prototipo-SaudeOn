@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="recy_dose" type="id">Dose</item>
+    <item name="recy_via" type="id">Via</item>
+    <item name="recy_intervalo" type="id">Intervalo</item>
+    <item name="recy_qtdDose" type="id">Quantidade/dose</item>
+</resources>

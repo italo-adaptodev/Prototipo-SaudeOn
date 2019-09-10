@@ -4,16 +4,16 @@ import java.util.List;
 
 public class AgendaProfissionalResponse {
 
-    private List<ProntuarioProfissional> prontuarioProfissionals;
+    private List<ProntuarioProfissional> Agendas;
     private String profissional;
 
     public AgendaProfissionalResponse(List<ProntuarioProfissional> prontuarioProfissionals, String profissional) {
-        this.prontuarioProfissionals = prontuarioProfissionals;
+        this.Agendas = prontuarioProfissionals;
         this.profissional = profissional;
     }
 
     public List<ProntuarioProfissional> getAgenda() {
-        return prontuarioProfissionals;
+        return Agendas;
     }
 
     public String getNome() {
@@ -21,7 +21,7 @@ public class AgendaProfissionalResponse {
     }
 
     public String getEnderecoMaps(int i) {
-        return prontuarioProfissionals.get(i).endereco;
+        return Agendas.get(i).endereco;
     }
 
 

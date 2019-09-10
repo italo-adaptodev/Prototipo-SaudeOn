@@ -138,6 +138,7 @@ public class Login extends AppCompatActivity {
             case 0:
                 intent = new Intent(Login.this, AgendaProfissional.class);
                 startActivity(intent);
+                break;
             case 1:
                 intent = new Intent(Login.this, AgendaCuidador.class);
                 startActivity(intent);
